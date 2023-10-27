@@ -155,7 +155,7 @@ class Bot(Client):
                 if not link:
                     await self.export_chat_invite_link(FORCE_SUB_CHANNEL3)
                     link = info.invite_link
-                self.invitelink3 = link
+                self.invitelink5 = link
                 self.LOGGER(__name__).info(
                     f"FORCE_SUB_CHANNEL2 detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
                 )
@@ -179,7 +179,7 @@ class Bot(Client):
                 if not link:
                     await self.export_chat_invite_link(FORCE_SUB_GROUP3)
                     link = info.invite_link
-                self.invitelink4 = link
+                self.invitelink6 = link
                 self.LOGGER(__name__).info(
                     f"FORCE_SUB_GROUP2 detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
                 )
