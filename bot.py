@@ -16,6 +16,8 @@ from config import (
     FORCE_SUB_GROUP,
     FORCE_SUB_CHANNEL2,
     FORCE_SUB_GROUP2,
+    FORCE_SUB_CHANNEL3,
+    FORCE_SUB_GROUP3,
     LOGGER,
     TG_BOT_TOKEN,
     TG_BOT_WORKERS,
@@ -140,6 +142,54 @@ class Bot(Client):
                 )
                 self.LOGGER(__name__).warning(
                     f"Pastikan @{self.username} adalah admin di Group Tersebut, Chat ID F-Subs Group Saat Ini: {FORCE_SUB_GROUP}"
+                )
+                self.LOGGER(__name__).info(
+                    "Bot Berhenti."
+                )
+                sys.exit()
+
+        if FORCE_SUB_CHANNEL3:
+            try:
+                info = await self.get_chat(FORCE_SUB_CHANNEL3)
+                link = info.invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL3)
+                    link = info.invite_link
+                self.invitelink3 = link
+                self.LOGGER(__name__).info(
+                    f"FORCE_SUB_CHANNEL2 detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
+                )
+            except Exception as a:
+                self.LOGGER(__name__).warning(a)
+                self.LOGGER(__name__).warning(
+                    "Bot tidak dapat Mengambil link invite dari FORCE_SUB_CHANNEL3!"
+                )
+                self.LOGGER(__name__).warning(
+                    f"Pastikan @{self.username} adalah admin di Channel Tersebut, Chat ID F-Subs Channel Saat Ini: {FORCE_SUB_CHANNEL3}"
+                )
+                self.LOGGER(__name__).info(
+                    "Bot Berhenti."
+                )
+                sys.exit()
+
+        if FORCE_SUB_GROUP3:
+            try:
+                info = await self.get_chat(FORCE_SUB_GROUP3)
+                link = info.invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_GROUP3)
+                    link = info.invite_link
+                self.invitelink4 = link
+                self.LOGGER(__name__).info(
+                    f"FORCE_SUB_GROUP2 detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
+                )
+            except Exception as a:
+                self.LOGGER(__name__).warning(a)
+                self.LOGGER(__name__).warning(
+                    "Bot tidak dapat Mengambil link invite dari FORCE_SUB_GROUP3!"
+                )
+                self.LOGGER(__name__).warning(
+                    f"Pastikan @{self.username} adalah admin di Group Tersebut, Chat ID F-Subs Group Saat Ini: {FORCE_SUB_GROUP3}"
                 )
                 self.LOGGER(__name__).info(
                     "Bot Berhenti."
