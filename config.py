@@ -30,6 +30,9 @@ HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
 # Custom Repo for updater.
 UPSTREAM_BRANCH = os.environ.get("UPSTREAM_BRANCH", "master")
 
+#Port
+PORT = os.environ.get("PORT", "8080")
+
 #Database 
 DB_URI = os.environ.get("DATABASE_URL", "")
 DB_NAME = os.environ.get("DATABASE_NAME", "filesharexbot")
